@@ -1,9 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <h1>Cotizador</h1>
+    
+    <Header
+      titulo='Cotizador de seguros'
+    />
   );
 }
 
