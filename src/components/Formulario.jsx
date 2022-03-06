@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { useState } from 'react';
 
 const Campo = styled.div`
     display: flex;
@@ -41,11 +42,23 @@ const Boton = styled.button`
 `
 
 const Formulario = () => {
+
+    const [ datos, guardarDatos ] = useState({
+        marca: '',
+        year: '',
+        plan: ''
+    });
+
+    const { marca, year, plan } = datos;
+
   return (
     <form>
         <Campo>
             <Label>Marca:</Label>
-                <Select>
+                <Select
+                    name="marca"
+                    value={marca}
+                >
                     <option value="">--- Seleccione ---</option>
                     <option value="americano">Americano</option>
                     <option value="europeo">Europeo</option>
