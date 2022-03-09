@@ -6,6 +6,7 @@ import styled from '@emotion/styled';
 const Contenedor = styled.div`
   max-width: 600px;
   margin: 0 auto;
+  margin-top: 3rem;
 `
 
 const ContenedorFormulario = styled.div`

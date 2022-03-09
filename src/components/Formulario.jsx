@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { useState } from 'react';
-import { obtenerDiferenciaYear, calcularMarca } from '../helper';
+import { obtenerDiferenciaYear, calcularMarca, obtenerPlan } from '../helper';
 
 const Campo = styled.div`
     display: flex;
@@ -89,7 +89,12 @@ const Formulario = () => {
 
        // Incrementos según marca
        resultado = calcularMarca(marca) * resultado;
+       
+       // Incrementos según plan
 
+       const incrementoPlan = obtenerPlan(plan);
+
+       resultado = parseFloat(incrementoPlan * resultado).toFixed(2);
        console.log(resultado);
     }
 
@@ -119,6 +124,7 @@ const Formulario = () => {
                     onChange={obtenerInformacion}   
                 >
                     <option value="">--- Seleccione ---</option>
+                    <option value="2022">2022</option>
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
                     <option value="2019">2019</option>
