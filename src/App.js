@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Formulario from "./components/Formulario";
 import Resumen from "./components/Resumen";
 import Resultado from "./components/Resultado";
+import Spinner from "./components/Spinner";
 import styled from '@emotion/styled';
 import { useState } from "react";
 
@@ -28,6 +29,8 @@ function App() {
     }
   });
 
+  const [cargando, guardarCargando] = useState(false);
+
   const { cotizacion, datos } = resumen;
 
   return (
@@ -38,13 +41,15 @@ function App() {
       <ContenedorFormulario>
         <Formulario
           guardarResumen={guardarResumen}
+          guardarCargando={guardarCargando}
         />
-        <Resumen
-          datos={datos}
-        />
-        <Resultado
-          cotizacion={cotizacion}
-        />
+        
+        { cargando ? <Spinner /> : null}
+
+        {!cargando ? <Resumen datos={datos} /> : null}
+        
+        { !cargando ? <Resultado cotizacion={cotizacion} /> : null }
+        
       </ContenedorFormulario>
     </Contenedor>
   );
